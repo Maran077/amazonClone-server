@@ -6,7 +6,8 @@ const connection = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
-    .catch(() => {
+    .catch((e) => {
+      console.log(e);
       process.exit(1);
     });
 };
