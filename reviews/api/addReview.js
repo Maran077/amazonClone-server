@@ -39,7 +39,7 @@ const addReview = catchAsyncError(async (req, res) => {
   await reviewModel.create({
     reviewer,
     product,
-    rating,
+    rating: parseInt(rating),
     reviewText,
     reviewTitle,
   });
