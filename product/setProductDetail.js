@@ -7,14 +7,13 @@ const setProductDetail = (req) => {
   const productImages = [];
 
   files?.forEach((file) => {
-    const path = `${file.destination}\\${file.filename}`;
-    const image = {
-      data: fs.readFileSync(path),
+    const buffer = file.buffer;
+    updateValue.userProfilePic = {
+      data: buffer,
       contentType: "image/jpg",
     };
-    productImages.push(image);
-    fs.unlinkSync(path);
   });
+
   return {
     productImages,
     productName,

@@ -1,13 +1,6 @@
 const multer = require("multer");
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./asset/productsImage(temp)");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
+const storage = multer.memoryStorage();
 
 const fileFilter = (req, file, cb) => {
   if (file.mimetype.startsWith("image/") && file.mimetype !== "image/gif") {

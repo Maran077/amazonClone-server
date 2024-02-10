@@ -10,12 +10,11 @@ const editUser = catchAsyncError(async (req, res) => {
   updateValue.userName = userName;
 
   if (file) {
-    const path = `${file.destination}\\${file.filename}`;
+    const buffer = file.buffer;
     updateValue.userProfilePic = {
-      data: fs.readFileSync(path),
+      data: buffer,
       contentType: "image/jpg",
     };
-    fs.unlinkSync(path);
   }
 
   if (role === "seller") {
