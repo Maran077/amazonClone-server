@@ -63,6 +63,7 @@ const User = new mongoose.Schema({
       },
       message: "star applies only to sellers",
     },
+    default: 0,
   },
   numberOfReview: {
     type: Number,
@@ -73,6 +74,7 @@ const User = new mongoose.Schema({
       },
       message: "numberOfReview applies only to sellers",
     },
+    default: 0,
   },
 });
 

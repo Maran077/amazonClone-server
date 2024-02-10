@@ -1,5 +1,3 @@
-const fs = require("fs");
-
 const setProductDetail = (req) => {
   const { files } = req;
   const { productName, description, price, stocks, category } = req.body;
