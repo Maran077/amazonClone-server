@@ -22,8 +22,10 @@ const login = catchAsyncError(async (req, res, next) => {
     .status(200)
     .cookie("token", token, {
       maxAge: process.env.COOKIE_EXPRIRE * 24 * 60 * 60 * 1000,
+      secure: true,
+      sameSite: "strict",
     })
-    .json({ success: true, msg: "successfully login" });
+    .json({ success: true, msg: "successfully login", token });
 });
 
 module.exports = login;
