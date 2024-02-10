@@ -7,7 +7,7 @@ const User = new mongoose.Schema({
     type: String,
     required: [true, "Username is required."],
     minlength: [4, "Username must be at least 4 characters long."],
-    maxlength: [20, "Username cannot exceed 20 characters."],
+    maxlength: [50, "Username cannot exceed 50 characters."],
     unique: [true, "Username already exit."],
   },
   email: {
@@ -42,7 +42,7 @@ const User = new mongoose.Schema({
   description: {
     type: String,
     minlength: [20, "Description must be at least 20 characters long"],
-    maxlength: [500, "Description cannot exceed 500 characters."],
+    maxlength: [1000, "Description cannot exceed 1000 characters."],
     validate: {
       validator: function () {
         const newRole = this._update?.$set.role;
