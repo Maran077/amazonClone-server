@@ -24,6 +24,7 @@ const login = catchAsyncError(async (req, res, next) => {
       maxAge: process.env.COOKIE_EXPRIRE * 24 * 60 * 60 * 1000,
       secure: true,
       sameSite: "strict",
+      domain: "http://localhost:5173",
     })
     .json({ success: true, msg: "successfully login", token });
 });
