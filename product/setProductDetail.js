@@ -8,10 +8,11 @@ const setProductDetail = (req) => {
 
   files?.forEach((file) => {
     const buffer = file.buffer;
-    updateValue.userProfilePic = {
+    const image = {
       data: buffer,
       contentType: "image/jpg",
     };
+    productImages.push(image);
   });
 
   return {
