@@ -18,14 +18,7 @@ const login = catchAsyncError(async (req, res, next) => {
     expiresIn: process.env.JWT_EXPRIRE,
   });
 
-  res
-    .status(200)
-    .cookie("token", token, {
-      maxAge: process.env.COOKIE_EXPRIRE * 24 * 60 * 60 * 1000,
-      secure: true,
-      sameSite: "strict",
-    })
-    .json({ success: true, msg: "successfully login" });
+  res.status(200).json({ success: true, msg: "successfully login", token });
 });
 
 module.exports = login;

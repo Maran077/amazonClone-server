@@ -30,14 +30,7 @@ const signin = catchAsyncError(async (req, res, next) => {
       new ErrorHandler("something wrong please resend data again", 500)
     );
 
-  res
-    .status(200)
-    .cookie("token", token, {
-      maxAge: process.env.COOKIE_EXPRIRE * 24 * 60 * 60 * 1000,
-      secure: true,
-      sameSite: "strict",
-    })
-    .json({ success: true, msg: "successfully signin" });
+  res.status(200).json({ success: true, msg: "successfully signin", token });
 });
 
 module.exports = signin;
